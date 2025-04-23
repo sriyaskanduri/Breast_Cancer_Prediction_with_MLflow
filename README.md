@@ -1,53 +1,42 @@
-project:
-  name: Breast Cancer Prediction with MLflow
-  description: >
-    This project demonstrates how to train, evaluate, log, and test a machine learning model 
-    using the breast cancer dataset from scikit-learn. It uses MLflow to track experiments,
-    log metrics, and manage models.
-  framework: scikit-learn
-  experiment_tracking: MLflow
+# 🧠 Breast Cancer Prediction with MLflow
 
-workflow:
-  steps:
-    - name: Load Dataset
-      description: >
-        Load breast cancer data using scikit-learn's built-in dataset loader. 
-        Prepare the features (X) and labels (y).
-    - name: Split Dataset
-      description: >
-        Split the data into training and testing sets (80/20 split).
-    - name: Train Model
-      description: >
-        Train a RandomForestClassifier with 100 estimators and a fixed random seed.
-    - name: Evaluate Model
-      description: >
-        Predict on the test set and calculate accuracy.
-    - name: Log with MLflow
-      description: >
-        Log the model, parameters, and accuracy metric with MLflow.
-        Include an input example to define model signature and remove MLflow warnings.
-    - name: Test Saved Model
-      description: >
-        Load the saved model from MLflow using its run ID and test it on the test dataset.
+This project demonstrates how to build, evaluate, and track a machine learning model using the Breast Cancer dataset from scikit-learn. It uses **MLflow** for experiment tracking and model management.
 
-dependencies:
-  - pandas
-  - numpy
-  - scikit-learn
-  - mlflow
+## 📌 Project Overview
 
-outputs:
-  - metrics:
-      - name: accuracy
-        type: float
-        description: Accuracy of the model on the test set
-  - artifacts:
-      - name: model
-        type: sklearn model
-        description: Random forest classifier saved in MLflow with input example
+- **Dataset**: Breast Cancer Wisconsin Diagnostic dataset (`sklearn.datasets`)
+- **Model**: Random Forest Classifier
+- **Experiment Tracking**: MLflow
+- **Purpose**: Train a classifier, log parameters and metrics, save the model, and test the saved model.
 
-notes:
-  - Ensure the MLflow tracking server is properly set up if running in remote environments.
-  - The warning about model signature is avoided by including an input_example during model logging.
-  - You can extend this project by adding more models, hyperparameter tuning, or a user interface.
+---
 
+## 🚀 Features
+
+- Load and explore the Breast Cancer dataset
+- Train/test split for evaluation
+- Train a RandomForestClassifier
+- Log model, parameters, and accuracy using MLflow
+- Load and test the saved model
+- Example input provided to suppress MLflow signature warnings
+
+---
+
+## 🧰 Requirements
+
+Install dependencies using pip:
+
+```bash
+pip install pandas numpy scikit-learn mlflow
+
+
+Model trained and saved! Run ID: 123abc456xyz
+
+🔍 Testing the saved model on the test data...
+
+✅ Accuracy of the loaded model on test data: 0.9737
+
+🔮 Sample Predictions:
+Features: [17.99 10.38 ...]
+True Label: 0 - Predicted: 0
+...
